@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.example.entity.ThetranghangthangEntity" table="thetranghangthang" schema="school">
+        <id name="id">
+            <column name="id" sql-type="bigint"/>
+        </id>
+        <property name="chieucao">
+            <column name="chieucao" sql-type="int" not-null="true"/>
+        </property>
+        <property name="cannang">
+            <column name="cannang" sql-type="int" not-null="true"/>
+        </property>
+        <property name="thang">
+            <column name="thang" sql-type="int" not-null="true"/>
+        </property>
+        <property name="nam">
+            <column name="nam" sql-type="int" not-null="true"/>
+        </property>
+        <property name="mahocsinh">
+            <column name="mahocsinh" sql-type="bigint" not-null="true"/>
+        </property>
+        <property name="magiaovien">
+            <column name="magiaovien" sql-type="bigint" not-null="true"/>
+        </property>
+        <many-to-one name="hocsinhByMahocsinh" class="com.example.entity.HocsinhEntity">
+            <column name="mahocsinh" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="giaovienByMagiaovien" class="com.example.entity.GiaovienEntity">
+            <column name="magiaovien" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

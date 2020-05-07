@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.example.entity.HoatdongtrongngayEntity" table="hoatdongtrongngay" schema="school">
+        <id name="id">
+            <column name="id" sql-type="bigint"/>
+        </id>
+        <property name="ngay">
+            <column name="ngay" sql-type="date" not-null="true"/>
+        </property>
+        <property name="gio">
+            <column name="gio" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="ten">
+            <column name="ten" sql-type="varchar(300)" length="300" not-null="true"/>
+        </property>
+        <set name="hinhanhsById" inverse="true">
+            <key>
+                <column name="mahoatdong" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.example.entity.HinhanhEntity"/>
+        </set>
+        <set name="lopHoatdongsById" inverse="true">
+            <key>
+                <column name="mahoatdong"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.example.entity.LopHoatdongEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

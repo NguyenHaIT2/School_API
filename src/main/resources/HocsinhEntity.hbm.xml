@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.example.entity.HocsinhEntity" table="hocsinh" schema="school">
+        <id name="id">
+            <column name="id" sql-type="bigint"/>
+        </id>
+        <property name="ten">
+            <column name="ten" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="ngaysinh">
+            <column name="ngaysinh" sql-type="date" not-null="true"/>
+        </property>
+        <property name="magiaovien">
+            <column name="magiaovien" sql-type="bigint" not-null="true"/>
+        </property>
+        <property name="maphuhuynh">
+            <column name="maphuhuynh" sql-type="bigint" not-null="true"/>
+        </property>
+        <property name="malop">
+            <column name="malop" sql-type="bigint" not-null="true"/>
+        </property>
+        <many-to-one name="giaovienByMagiaovien" class="com.example.entity.GiaovienEntity">
+            <column name="magiaovien" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="phuhuynhByMaphuhuynh" class="com.example.entity.PhuhuynhEntity">
+            <column name="maphuhuynh" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="lopByMalop" class="com.example.entity.LopEntity">
+            <column name="malop" not-null="true"/>
+        </many-to-one>
+        <set name="hocsinhDensById" inverse="true">
+            <key>
+                <column name="mahocsinh" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.example.entity.HocsinhDenEntity"/>
+        </set>
+        <set name="hocsinhHinhanhsById" inverse="true">
+            <key>
+                <column name="mahocsinh"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.example.entity.HocsinhHinhanhEntity"/>
+        </set>
+        <set name="hocsinhHocphisById" inverse="true">
+            <key>
+                <column name="mahocsinh" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.example.entity.HocsinhHocphiEntity"/>
+        </set>
+        <set name="thetranghangthangsById" inverse="true">
+            <key>
+                <column name="mahocsinh" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.example.entity.ThetranghangthangEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

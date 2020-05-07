@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/school</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <mapping class="com.example.entity.AdminEntity"/>
+        <mapping resource="AdminEntity.hbm.xml"/>
+        <mapping class="com.example.entity.BinhluanEntity"/>
+        <mapping resource="BinhluanEntity.hbm.xml"/>
+        <mapping resource="DiemdanhdenEntity.hbm.xml"/>
+        <mapping class="com.example.entity.DiemdanhdenEntity"/>
+        <mapping resource="DiemdanhveEntity.hbm.xml"/>
+        <mapping class="com.example.entity.DiemdanhveEntity"/>
+        <mapping class="com.example.entity.GiaovienEntity"/>
+        <mapping resource="GiaovienEntity.hbm.xml"/>
+        <mapping resource="GroupEntity.hbm.xml"/>
+        <mapping class="com.example.entity.GroupEntity"/>
+        <mapping class="com.example.entity.GroupRoleEntity"/>
+        <mapping resource="GroupRoleEntity.hbm.xml"/>
+        <mapping class="com.example.entity.HinhanhEntity"/>
+        <mapping resource="HinhanhEntity.hbm.xml"/>
+        <mapping class="com.example.entity.HoatdongtrongngayEntity"/>
+        <mapping resource="HoatdongtrongngayEntity.hbm.xml"/>
+        <mapping class="com.example.entity.HocsinhEntity"/>
+        <mapping resource="HocsinhEntity.hbm.xml"/>
+        <mapping class="com.example.entity.HocsinhDenEntity"/>
+        <mapping resource="HocsinhDenEntity.hbm.xml"/>
+        <mapping class="com.example.entity.HocsinhHinhanhEntity"/>
+        <mapping resource="HocsinhHinhanhEntity.hbm.xml"/>
+        <mapping class="com.example.entity.HocsinhHocphiEntity"/>
+        <mapping resource="HocsinhHocphiEntity.hbm.xml"/>
+        <mapping resource="HocsinhVeEntity.hbm.xml"/>
+        <mapping class="com.example.entity.HocsinhVeEntity"/>
+        <mapping class="com.example.entity.LopEntity"/>
+        <mapping resource="LopEntity.hbm.xml"/>
+        <mapping class="com.example.entity.LopHoatdongEntity"/>
+        <mapping resource="LopHoatdongEntity.hbm.xml"/>
+        <mapping class="com.example.entity.LopNoidunghoctapEntity"/>
+        <mapping resource="LopNoidunghoctapEntity.hbm.xml"/>
+        <mapping class="com.example.entity.MonanEntity"/>
+        <mapping resource="MonanEntity.hbm.xml"/>
+        <mapping class="com.example.entity.NoidunghoctapEntity"/>
+        <mapping resource="NoidunghoctapEntity.hbm.xml"/>
+        <mapping class="com.example.entity.PhuhuynhEntity"/>
+        <mapping resource="PhuhuynhEntity.hbm.xml"/>
+        <mapping class="com.example.entity.RoleEntity"/>
+        <mapping resource="RoleEntity.hbm.xml"/>
+        <mapping resource="SukientruongEntity.hbm.xml"/>
+        <mapping class="com.example.entity.SukientruongEntity"/>
+        <mapping class="com.example.entity.ThetranghangthangEntity"/>
+        <mapping resource="ThetranghangthangEntity.hbm.xml"/>
+        <mapping resource="ThucdonEntity.hbm.xml"/>
+        <mapping class="com.example.entity.ThucdonEntity"/>
+        <!-- <property name="connection.username"/> -->
+        <!-- <property name="connection.password"/> -->
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>

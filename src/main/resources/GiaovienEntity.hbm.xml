@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.example.entity.GiaovienEntity" table="giaovien" schema="school">
+        <id name="id">
+            <column name="id" sql-type="bigint"/>
+        </id>
+        <property name="ten">
+            <column name="ten" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="email">
+            <column name="email" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="matkhau">
+            <column name="matkhau" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="groupid">
+            <column name="groupid" sql-type="int" not-null="true"/>
+        </property>
+        <many-to-one name="groupByGroupid" class="com.example.entity.GroupEntity">
+            <column name="groupid" not-null="true"/>
+        </many-to-one>
+        <set name="hocsinhsById" inverse="true">
+            <key>
+                <column name="magiaovien" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.example.entity.HocsinhEntity"/>
+        </set>
+        <set name="lopsById" inverse="true">
+            <key>
+                <column name="magiaovien" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.example.entity.LopEntity"/>
+        </set>
+        <set name="thetranghangthangsById" inverse="true">
+            <key>
+                <column name="magiaovien" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.example.entity.ThetranghangthangEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

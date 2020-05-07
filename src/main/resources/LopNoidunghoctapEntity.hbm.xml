@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.example.entity.LopNoidunghoctapEntity" table="lop_noidunghoctap" schema="school">
+        <composite-id mapped="true" class="com.example.entity.LopNoidunghoctapEntityPK">
+            <key-property name="malop">
+                <column name="malop" sql-type="bigint"/>
+            </key-property>
+            <key-property name="manoidunghoctap">
+                <column name="manoidunghoctap" sql-type="bigint"/>
+            </key-property>
+        </composite-id>
+        <many-to-one name="lopByMalop" class="com.example.entity.LopEntity">
+            <column name="malop"/>
+        </many-to-one>
+        <many-to-one name="noidunghoctapByManoidunghoctap" class="com.example.entity.NoidunghoctapEntity">
+            <column name="manoidunghoctap"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

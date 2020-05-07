@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.example.entity.BinhluanEntity" table="binhluan" schema="school">
+        <id name="id">
+            <column name="id" sql-type="bigint"/>
+        </id>
+        <property name="maphuhuynh">
+            <column name="maphuhuynh" sql-type="bigint" not-null="true"/>
+        </property>
+        <property name="mahinhanh">
+            <column name="mahinhanh" sql-type="bigint" not-null="true"/>
+        </property>
+        <property name="ngay">
+            <column name="ngay" sql-type="date" not-null="true"/>
+        </property>
+        <property name="gio">
+            <column name="gio" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="noidung">
+            <column name="noidung" sql-type="varchar(300)" length="300" not-null="true"/>
+        </property>
+        <many-to-one name="phuhuynhByMaphuhuynh" class="com.example.entity.PhuhuynhEntity">
+            <column name="maphuhuynh" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="hinhanhByMahinhanh" class="com.example.entity.HinhanhEntity">
+            <column name="mahinhanh" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
